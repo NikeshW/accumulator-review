@@ -86,6 +86,19 @@ const myLetters = numOfOccurences("AccabbabbCcbcbB")
  */
 
 function targetLetter(letters, target){
+    // Guard clause
+    // Make sure each value in letters is a number
+    for (const key in letters) {
+        if(typeof letters[key] !== 'number'){
+            return "One of the values is not a number"
+        }
+    }
+
+    if(typeof target !== 'number'){
+        return "Target must be a number"
+    }
+
+
     // Initialize accumulator
     let accumulator = []
 
@@ -111,7 +124,7 @@ function targetLetter(letters, target){
     return accumulator
 }
 
-console.log(targetLetter(myLetters, 3))
+console.log(targetLetter(myLetters, "something else"))
 
 
 
