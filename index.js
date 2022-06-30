@@ -11,6 +11,65 @@
  * 
  */
 
+
+// Guard clause example
+// const coffeeMaker = (liquid, powder) => {
+//     // Guard clause
+//     if(liquid !== "water"){
+//         return "We have an error: not water"
+//     } else if(powder !== "coffee grounds"){
+//         return "another error"
+//     }
+// }
+
+
+
+function numOfOccurences(str){
+    // Guard clause
+    // str could not be a string
+    // str length could be zero
+    if(typeof str !== "string" || str.length === 0){
+        return "Error"
+    }
+
+
+
+    // Initialize accumulator
+    let accumulator = {}
+
+
+    // Our logic goes here
+    // Iterate over the string
+    for (let i = 0; i < str.length; i++) {
+        // Make a variable to hold each letter as we iterate
+        const letter = str[i].toLowerCase();
+
+        // If the letter does not exist in our accumulator
+        if(!accumulator[letter]){
+            // Add the letter to the accumulator
+            accumulator[letter] = 1
+        } else {
+            // Add one to the letter in the accumulator
+            accumulator[letter] += 1
+        }
+    }
+
+    // Return accumulator
+    return accumulator
+}
+
+
+const myLetters = numOfOccurences("AccabbabbCcbcbB")
+// console.log(numOfOccurences(35))
+// console.log(numOfOccurences(""))
+// console.log(myLetters)
+
+
+
+
+
+
+
 /**
  * targetLetters()
  * ----------------
@@ -25,6 +84,36 @@
  *  //> ["b", "c"]
  * 
  */
+
+function targetLetter(letters, target){
+    // Initialize accumulator
+    let accumulator = []
+
+
+    // Our logic goes here
+    for (const key in letters) {
+        // Prints out each key
+        // console.log("Key:", key)
+        // Prints out the value for each key
+        // console.log("Value:", letters[key])
+
+        // Set letters[key] to a variable for readability
+        let value = letters[key]
+        
+        // If statement that checks if letters[key] > 3
+        if(value > target){
+            // Add the letter to the accumulator
+            // Pushes key to the accumulator
+            accumulator.push(key)
+        } 
+    }
+    // return accumulator
+    return accumulator
+}
+
+console.log(targetLetter(myLetters, 3))
+
+
 
 
 
